@@ -160,7 +160,7 @@ def valida_coca():
 
 
 
-def valida_rotten():
+def valida_rootten():
     """valider la randomisation de la pomme pourrie """
     global azar
     azar = random.choice([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
@@ -192,7 +192,7 @@ def randRottenApple():
 
 
 def valida_tempo(respawn):
-    """valider le temps de surface de la coca"""
+    """valider le temps de surface du coca"""
     global tempo
     if tempo > 60:
         tempo = 60
@@ -206,7 +206,7 @@ def valida_tempo_rotten(respawnR):
     if tempoR > 60:
         tempoR = 60
     if respawnR.tm_sec == tempoR:
-        valida_rotten()
+        valida_rootten()
 
 
 
@@ -413,7 +413,7 @@ def gameLoop():
     randAppleX, randAppleY = randAppleGen()
     cocaX, cocaY = randCocaGen()
     rottenX, rottenY = randRottenApple()
-    valida_rotten()
+    valida_rootten()
     # Tant que gameExit n'est pas True, le jeu continue
     while not gameExit:  # loop principal du jeu
 
@@ -537,14 +537,14 @@ def gameLoop():
                 elif azar == 1 or azar == 5 or azar == 7 or azar == 3:
                     azar = 1
                 elif azar != 1 or azar != 5 or azar == 7 or azar != 3:
-                    valida_rotten()
+                    valida_rootten()
 
 
                 randAppleX, randAppleY = randAppleGen()
                 snakeCm += 1
                 cont += 1
-                valida_rotten()
-                valida_rotten()
+                valida_rootten()
+                valida_rootten()
             elif lead_y + block_size > randAppleY and lead_y + block_size < randAppleY + AppleThickness:
                 if sorte == 1 or sorte == 5:
                     sorte = 1
@@ -553,12 +553,12 @@ def gameLoop():
                 elif azar == 1 or azar == 5 or azar == 7 or azar == 3:
                     azar = 1
                 elif azar != 1 or azar != 5 or azar != 7 or azar != 3:
-                    valida_rotten()
+                    valida_rootten()
 
                 randAppleX, randAppleY = randAppleGen()
                 snakeCm += 1
                 cont += 1
-                valida_rotten()
+                valida_rootten()
 
         # Traitement pour l'incision du COCA, la collision et autres.
         if sorte == 1 or sorte == 5:
@@ -592,13 +592,13 @@ def gameLoop():
                 if lead_y > rottenY and lead_y < rottenY + AppleThickness:
                     rottenX, rottenY = randRottenApple()
                     snakeCm -= 1
-                    valida_rotten()
+                    valida_rootten()
                     cont -= 1
 
                 elif lead_y + block_size > rottenY and lead_y + block_size < rottenY + AppleThickness:
                     rottenX, rottenY = randRottenApple()
                     snakeCm -= 1
-                    valida_rotten()
+                    valida_rootten()
                     cont -= 1
         else:
             respawnR = time.localtime()
