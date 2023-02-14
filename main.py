@@ -65,7 +65,7 @@ snakeCm = 0
 respawn = time.localtime()
 respawnR = time.localtime()
 tempoR = 0
-AppleEspessura = 30
+AppleThickness = 30
 block_size = 20
 block_apple = 30
 FPS = 30
@@ -527,9 +527,9 @@ def gameLoop():
         pygame.display.update()
 
         # Si la tête du serpent touche la pomme, la pomme est générée à un autre endroit aléatoire
-        if lead_x > randAppleX and lead_x < randAppleX + AppleEspessura or \
-                lead_x + block_size > randAppleX and lead_x < randAppleX + AppleEspessura:
-            if lead_y > randAppleY and lead_y < randAppleY + AppleEspessura:
+        if lead_x > randAppleX and lead_x < randAppleX + AppleThickness or \
+                lead_x + block_size > randAppleX and lead_x < randAppleX + AppleThickness:
+            if lead_y > randAppleY and lead_y < randAppleY + AppleThickness:
                 if sorte == 1 or sorte == 5:
                     sorte = 1
                 elif sorte != 1 or sorte != 5:
@@ -545,7 +545,7 @@ def gameLoop():
                 cont += 1
                 valida_rotten()
                 valida_rotten()
-            elif lead_y + block_size > randAppleY and lead_y + block_size < randAppleY + AppleEspessura:
+            elif lead_y + block_size > randAppleY and lead_y + block_size < randAppleY + AppleThickness:
                 if sorte == 1 or sorte == 5:
                     sorte = 1
                 elif sorte != 1 or sorte != 5:
@@ -564,14 +564,14 @@ def gameLoop():
         if sorte == 1 or sorte == 5:
             respawn = time.localtime()
             valida_tempo(respawn)
-            if lead_x > cocaX and lead_x < cocaX + AppleEspessura or \
-                    lead_x + block_size > cocaX and lead_x < cocaX + AppleEspessura:
-                if lead_y > cocaY and lead_y < cocaY + AppleEspessura:
+            if lead_x > cocaX and lead_x < cocaX + AppleThickness or \
+                    lead_x + block_size > cocaX and lead_x < cocaX + AppleThickness:
+                if lead_y > cocaY and lead_y < cocaY + AppleThickness:
                     cocaX, cocaY = randCocaGen()
                     snakeCm += 5
                     cont += 5
                     valida_coca()
-                elif lead_y + block_size > cocaY and lead_y + block_size < cocaY + AppleEspessura:
+                elif lead_y + block_size > cocaY and lead_y + block_size < cocaY + AppleThickness:
                     cocaX, cocaY = randCocaGen()
                     snakeCm += 5
                     cont += 5
@@ -587,15 +587,15 @@ def gameLoop():
         if azar == 1 or azar == 5:
             respawnR = time.localtime()
             valida_tempo_rotten(respawnR)
-            if lead_x > rottenX and lead_x < rottenX + AppleEspessura or \
-                    lead_x + block_size > rottenX and lead_x < rottenX + AppleEspessura:
-                if lead_y > rottenY and lead_y < rottenY + AppleEspessura:
+            if lead_x > rottenX and lead_x < rottenX + AppleThickness or \
+                    lead_x + block_size > rottenX and lead_x < rottenX + AppleThickness:
+                if lead_y > rottenY and lead_y < rottenY + AppleThickness:
                     rottenX, rottenY = randRottenApple()
                     snakeCm -= 1
                     valida_rotten()
                     cont -= 1
 
-                elif lead_y + block_size > rottenY and lead_y + block_size < rottenY + AppleEspessura:
+                elif lead_y + block_size > rottenY and lead_y + block_size < rottenY + AppleThickness:
                     rottenX, rottenY = randRottenApple()
                     snakeCm -= 1
                     valida_rotten()
