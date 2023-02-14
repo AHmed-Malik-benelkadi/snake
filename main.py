@@ -514,8 +514,8 @@ def gameLoop():
         snake_grow(block_size, snakeList)
 
         # Si la tête du serpent touche le corps du serpent, le jeu s'arrête
-        for cadasegmento in snakeList[:-1]:
-            if cadasegmento == snakeHead:
+        for cadasegment in snakeList[:-1]:
+            if cadasegment == snakeHead:
                 gameOver = True
                 cont = 0
 
